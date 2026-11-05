@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CineStream - Catálogo de Filmes</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="src/css/style.css">
 </head>
 
 <body>
@@ -14,7 +14,7 @@
             <div class="logo">CineStream</div>
             <ul class="nav-links">
                 <li><a href="#">Início</a></li>
-                <li><a href="#">Filmes</a></li>
+                <li><a href="exemplo alunos/exemplo.html">Filmes</a></li>
                 <li><a href="#">Séries</a></li>
                 <li><a href="#">Minha Lista</a></li>
             </ul>
@@ -34,9 +34,13 @@
         </div>
     </section>
     <main class="catalog">
-        <h2>Catálogo de Filmes</h2>
+        <div class="catalog-heading">
+            <h2>Catálogo de Filmes</h2>
+            <button id="abrir-formulario" class="add-movie-button" type="button" aria-label="Adicionar filme"
+                aria-expanded="false" aria-controls="form-card">+</button>
+        </div>
 
-        <div class="movie-grid">
+        <div id="feed-filmes" class="movie-grid">
             <div class="movie-card">
                 <img src="https://picsum.photos/300/450?random=1" alt="Capa do Filme 1">
                 <div class="card-info">
@@ -86,8 +90,34 @@
             </div>
 
         </div>
+
+        <dialog id="form-card" class="movie-form-dialog" aria-labelledby="form-title">
+            <form id="form-cadastrar-filme" class="movie-form">
+                <h3 id="form-title">Cadastrar filme</h3>
+                <label for="titulo">Título</label>
+                <input id="titulo" name="titulo" type="text" placeholder="Título do filme" required>
+
+                <label for="genero">Gênero</label>
+                <input id="genero" name="genero" type="text" placeholder="Ex.: Ação, Sci-Fi" required>
+
+                <label for="ano">Ano de lançamento</label>
+                <input id="ano" name="ano" type="number" min="1800" max="2099" placeholder="2026" required>
+
+                <label for="capa">URL da capa</label>
+                <input id="capa" name="capa" type="url" placeholder="https://..." required>
+
+                <label for="sinopse">Sinopse</label>
+                <textarea id="sinopse" name="sinopse" rows="3" placeholder="Sinopse do filme" required></textarea>
+
+                <div class="movie-form-actions">
+                    <button class="btn btn-primary" type="submit">Publicar</button>
+                    <button id="cancelar-cadastro" class="btn btn-secondary" type="button">Cancelar</button>
+                </div>
+            </form>
+        </dialog>
     </main>
 
+    <script src="src/js/app.js" defer></script>
 </body>
 
 </html>
